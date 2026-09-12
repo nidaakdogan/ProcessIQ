@@ -1,0 +1,9 @@
+"""Future integration adapters — implement the same interfaces as Postgres*Service.
+
+Example:
+  class JiraTaskService(TaskDataSource): ...
+  class AzureDevOpsBugService(BugDataSource): ...
+  class GitHubCommitService(CommitDataSource): ...
+
+Wire them in app.services.build_services() without changing API or LLM tools.
+"""
