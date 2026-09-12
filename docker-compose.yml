@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: spip
+      POSTGRES_PASSWORD: spip
+      POSTGRES_DB: spip
+    ports:
+      - "5432:5432"
+    volumes:
+      - spip_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U spip -d spip"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  spip_pg:
